@@ -9,7 +9,8 @@ module Listen
 
         # Backend selecting options
         force_polling: false,
-        polling_fallback_message: nil
+        polling_fallback_message: nil,
+        check_with_size: false
       }
 
       def initialize(opts)
