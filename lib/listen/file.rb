@@ -26,17 +26,15 @@ module Listen
         return :modified
       end
       
-      if options[:check_with_size]
-        Listen::Logger.debug('---------checking with size----------')
-        if data[:size] > record_data[:size]
-          Listen::Logger.debug('---------checking with size: Bigger----------')
-          record.update_file(rel_path, data)
-          return :modified
-        elsif data[:size] < record_data[:size]
-          Listen::Logger.debug('---------checking with size: Smaller----------')
-          record.update_file(rel_path, data)
-          return :added
-        end
+      Listen::Logger.debug('---------checking with size----------')
+      if data[:size] > record_data[:size]
+        Listen::Logger.debug('---------checking with size: Bigger----------')
+        record.update_file(rel_path, data)
+        return :modified
+      elsif data[:size] < record_data[:size]
+        Listen::Logger.debug('---------checking with size: Smaller----------')
+        record.update_file(rel_path, data)
+        return :added
       end
 
       return if /1|true/ =~ ENV['LISTEN_GEM_DISABLE_HASHING']
