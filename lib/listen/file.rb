@@ -2,7 +2,7 @@ require 'digest/md5'
 
 module Listen
   class File
-    def self.change(record, rel_path)
+    def self.change(record, rel_path, options)
       path = Pathname.new(record.root) + rel_path
       lstat = path.lstat
 
