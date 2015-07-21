@@ -10,6 +10,7 @@ module Listen
 
       record_data = record.file_data(rel_path)
 
+      Listen::Logger.debug('---------checking file Changes----------')
       if record_data.empty?
         record.update_file(rel_path, data)
         return :added
