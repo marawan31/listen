@@ -177,7 +177,7 @@ relative: false                                 # Whether changes should be rela
 debug: true                                     # Enable Listen logger
                                                 # default: false
 
-check_with_size: fale                           # Check whether a file has changed based on the size
+check_with_size: false                           # Check whether a file has changed based on the size
                                                 # if the new size is bigger than the file has been modified,
                                                 # if the new size is smaller than the file was removed than added 
                                                 # in which case the update will only be "added" 
