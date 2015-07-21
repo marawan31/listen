@@ -20,6 +20,11 @@ module Listen
         return :modified
       end
       
+      if data[:mtime] != record_data[:mtime]
+        record.update_file(rel_path, data)
+        return :modified
+      end
+      
       if options[:check_with_size]
         if data[:size] > record_data[:size]
           record.update_file(rel_path, data)
@@ -28,11 +33,6 @@ module Listen
           record.update_file(rel_path, data)
           return :added
         end
-      end
-      
-      if data[:mtime] != record_data[:mtime]
-        record.update_file(rel_path, data)
-        return :modified
       end
 
       return if /1|true/ =~ ENV['LISTEN_GEM_DISABLE_HASHING']
