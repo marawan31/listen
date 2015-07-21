@@ -178,8 +178,8 @@ debug: true                                     # Enable Listen logger
                                                 # default: false
 
 check_with_size: false                          # Check whether a file has changed based on the size
-                                                # if the new size is bigger than the file has been modified,
-                                                # if the new size is smaller than the file was removed than added 
+                                                # if the new size is bigger then the file has been modified,
+                                                # if the new size is smaller then the file was removed then added 
                                                 # in which case the update will only be "added" 
                                                 # default: false
 
